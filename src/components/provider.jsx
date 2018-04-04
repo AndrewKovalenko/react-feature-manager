@@ -1,67 +1,74 @@
-import { Component, Children } from 'react'
-import PropTypes from 'prop-types'
+import { Component, Children } from 'react';
+import PropTypes from 'prop-types';
 
 const subscriptionsStructure = PropTypes.shape({
   trySubscribe: PropTypes.func.isRequired,
   tryUnsubscribe: PropTypes.func.isRequired,
   notifyNestedSubs: PropTypes.func.isRequired,
   isSubscribed: PropTypes.func.isRequired,
-})
+});
 
 const storeStructure = PropTypes.shape({
   subscribe: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
   getState: PropTypes.func.isRequired
-})
+});
+
+const clientStructure = PropTypes.shape({
+  getFlag: PropTypes.func.isRequired,
+  getAllFlags: PropTypes.func.isRequired,
+  on: PropTypes.func.isRequired
+});
 
 export function createProvider(storePropName = 'store', subscribePropName) {
-  const subscriptionPropertyName = subscribePropName || `${storePropName}Subscription`
+  const subscriptionPropertyName = subscribePropName || `${storePropName}Subscription`;
 
   class Provider extends Component {
+    constructor(props, context) {
+      super(props, context);
+      const { store, client } = props;
+      this[storePropName] = store;
+      this.client = client;
+    }
+
     getChildContext() {
       return {
-        launchDarklyConfig: this.launchDarklyConfig
-        [storePropName]: this[storePropName], 
-        [subscriptionPropertyName]: null 
-      }
+        featureManagementClient: this.client,
+        [storePropName]: this[storePropName],
+        [subscriptionPropertyName]: null
+      };
     }
-
-    constructor(props, context) {
-      super(props, context)
-      this[storePropName] = props.store;
-      this.launchDarklyConfig = props.launchDarklyConfig
-    }
-
     render() {
-      return Children.only(this.props.children)
+      return Children.only(this.props.children);
     }
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    Provider.prototype.componentWillReceiveProps = function (nextProps) {
+    Provider.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
       if (this[storePropName] !== nextProps.store) {
         console.warn('Redux store provided by provider is reassigned');
       }
 
-      if (nextProps.launchDarklyConfig && this.launchDarklyConfig !== nextProps.launchDarklyConfig) {
-        console.warn('LaunchDarkly config provided by provider is reassigned');
+      if (nextProps.featureManagementClient &&
+        this.featureManagementClient !== nextProps.featureManagementClient) {
+        console.warn('Feature Management Client provided by provider is reassigned');
       }
-    }
+    };
   }
 
   Provider.propTypes = {
-    store: storeShape.isRequired,
+    store: storeStructure.isRequired,
     children: PropTypes.element.isRequired,
-    launchDarklyConfig: PropTypes.object.isRequired
+    client: clientStructure.isRequired
   };
 
   Provider.childContextTypes = {
-    [storePropName]: storeShape.isRequired,
-    [subscriptionPropertyName]: subscriptionShape,
-    launchDarklyConfig: PropTypes.object.isRequired
+    [storePropName]: storeStructure.isRequired,
+    [subscriptionPropertyName]: subscriptionsStructure,
+    featureManagementClient: clientStructure.isRequired
   };
 
-  return Provider
+  return Provider;
 }
 
-export default createProvider()
+export default createProvider();
