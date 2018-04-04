@@ -6,7 +6,7 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'build/umd/launch-darkly-react.js',
+      file: 'build/umd/react-manage-features.js',
       name: 'react-feature',
       format: 'umd'
     },
