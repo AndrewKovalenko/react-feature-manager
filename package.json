@@ -9,7 +9,7 @@
   "scripts": {
     "build:dev": "rollup -c",
     "lint": "eslint src",
-    "start": "rollup -c"
+    "start": "rollup -cw"
   },
   "peerDependencies": {
     "react": "^16.3.0",
@@ -25,13 +25,14 @@
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "react": "^16.3.0",
     "prop-types": "^15.6.1",
+    "react": "^16.3.0",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-livereload": "^0.6.0",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-serve": "^0.4.2"
+    "rollup-plugin-serve": "^0.4.2",
+    "rollup-watch": "^4.3.1"
   }
 }

@@ -23,6 +23,10 @@ export default {
     }
   ],
   external: ['react', 'prop-types'],
+  entry: 'src/index.js',
+  watch: {
+    include: 'src/**'
+  },
   plugins: [
     resolve({
       extensions: ['.js', '.json', '.jsx']
