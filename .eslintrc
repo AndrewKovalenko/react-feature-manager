@@ -39,6 +39,10 @@
     ],
     "no-plusplus": [
       "off"
+    ],
+    "no-unused-vars": [
+      "error",
+      { "varsIgnorePattern": "React" }
     ]
   }
 }

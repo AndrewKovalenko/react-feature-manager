@@ -1,17 +1,19 @@
 {
-  "name": "react-manage-features",
+  "name": "react-feature-switch",
   "version": "0.0.1",
   "description": "React toolset to start using feature-flags in your react application",
-  "main": "build/umd/react-manage-features.js",
+  "main": "build/umd/react-feature-switch.js",
   "module": "build/module/index.js",
   "author": "Andrii Kovalenko",
   "license": "MIT",
   "scripts": {
     "build:dev": "rollup -c",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "start": "rollup -c"
   },
   "peerDependencies": {
-    "react": "^16.3.0"
+    "react": "^16.3.0",
+    "prop-types": "^15.6.1"
   },
   "devDependencies": {
     "babel-core": "6",
@@ -24,13 +26,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "react": "^16.3.0",
+    "prop-types": "^15.6.1",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-node-resolve": "^3.3.0"
-  },
-  "dependencies": {
-    "ldclient-js": "^1.6.1",
-    "prop-types": "^15.6.1"
+    "rollup-plugin-livereload": "^0.6.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-serve": "^0.4.2"
   }
 }
