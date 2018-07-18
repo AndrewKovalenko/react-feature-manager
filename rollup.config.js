@@ -25,7 +25,8 @@ export default {
   external: ['react', 'prop-types'],
   entry: 'src/index.js',
   watch: {
-    include: 'src/**'
+    include: 'src/**',
+    clearScreen: false
   },
   plugins: [
     resolve({
