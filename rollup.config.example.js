@@ -3,29 +3,18 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
-
+import replace from 'rollup-plugin-replace';
 
 export default {
-  input: 'src/index.js',
+  input: 'example/js/index.jsx',
   output: [
     {
-      file: 'build/umd/react-feature-switch.js',
-      name: 'react-feature-switch',
-      format: 'umd',
-      globals: {
-        react: 'React',
-        'prop-types': 'PropTypes'
-      }
+      file: 'public/js/example.js',
+      format: 'iife'
     },
-    {
-      file: 'build/module/index.js',
-      format: 'es'
-    }
   ],
-  external: ['react', 'prop-types'],
-  entry: 'src/index.js',
   watch: {
-    include: 'src/**',
+    include: ['example/**', 'build/**'],
     clearScreen: false
   },
   plugins: [
@@ -41,19 +30,14 @@ export default {
     babel({
       exclude: 'node_modules/**'
     }),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    }),
     serve({
       open: true,
-
-      // Show server address in console (default: true)
       verbose: false,
-
-      // Multiple folders to serve from
-      contentBase: ['build', 'example'],
-
-      // Set to true to return index.html instead of 404
+      contentBase: 'public',
       historyApiFallback: false,
-
-      // Options used in setting up server
       host: 'localhost',
       port: 10001
     }),
