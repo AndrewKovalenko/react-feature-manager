@@ -1,48 +1,24 @@
 {
   "env": {
     "browser": true,
-      "commonjs": true,
-      "es6": true
+    "commonjs": true,
+    "es6": true
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "extends": "airbnb",
   "parserOptions": {
     "sourceType": "module"
   },
   "rules": {
-    "indent": [
-      "error",
-    2
-    ],
-    "linebreak-style": [
-      "error",
-    "unix"
-    ],
-    "quotes": [
-      "error",
-    "single"
-    ],
-    "semi": [
-      "error",
-    "always"
-    ],
-    "no-extend-native": [
-      "off"
-    ],
-    "import/prefer-default-export": [
-      "off"
-    ],
-    "comma-dangle": [
-      "off"
-    ],
-    "no-plusplus": [
-      "off"
-    ],
-    "no-unused-vars": [
-      "error",
-      { "varsIgnorePattern": "React" }
-    ]
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "no-extend-native": ["off"],
+    "import/prefer-default-export": ["off"],
+    "comma-dangle": ["off"],
+    "no-plusplus": ["off"],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "React" }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/**/*"] }]
   }
 }
