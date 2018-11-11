@@ -15,10 +15,18 @@ export default class Feature extends React.Component {
     return { flagValue: this.state.flagValue };
   }
 
+  componentDidMount() {
+    const { name, featureManagementClient } = this.props;
+    this.unSubscribeFromFlagUpdates = featureManagementClient.subscribe(name, newFlagValue =>
+      this.setState({ flagValue: newFlagValue }));
+  }
+
+  componentWillUnmount() {
+    if (this.unSubscribeFromFlagUpdates) this.unSubscribeFromFlagUpdates();
+  }
+
   render() {
-    return this.state.flagValue ?
-      this.props.children :
-      null;
+    return this.state.flagValue ? this.props.children : null;
   }
 }
 
@@ -27,11 +35,11 @@ Feature.contextTypes = {
 };
 
 Feature.propTypes = {
-  // NOTE: in fact "name" is used in getDerivedStateFromProps but eslint doesn't see it
-  name: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  name: PropTypes.string.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  featureManagementClient: featureManagementClientSahpe.isRequired
 };
 
 Feature.childContextTypes = {
-  flagValue: PropTypes.string.isRequired,
+  flagValue: PropTypes.string.isRequired
 };

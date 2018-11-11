@@ -18,5 +18,5 @@ Provider.propTypes = {
 };
 
 Provider.childContextTypes = {
-  featureManagementClient: featureManagementClientSahpe.isRequired,
+  featureManagementClient: featureManagementClientSahpe.isRequired
 };
