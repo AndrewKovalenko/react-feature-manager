@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const Option = ({ value, flagValue, children }) => (value === flagValue ? children : null);
+class Option extends Component {
+  shouldComponentUpdate(_props, _state, newContext) {
+    return newContext.flagValue !== this.context.flagValue;
+  }
+
+  render() {
+    const { value, children } = this.props;
+    const { flagValue } = this.context;
+
+    return (value === flagValue ? children : null);
+  }
+}
 
 Option.contextTypes = {
-  flagValue: PropTypes.string.isRequired
+  flagValue: PropTypes.any
 };
 
 Option.propTypes = {
-  value: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired
+  value: PropTypes.any.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired
 };
 
 export default Option;

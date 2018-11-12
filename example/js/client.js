@@ -2,13 +2,12 @@ const mockFlags = {};
 const subscriptions = {};
 
 export default {
-  setSelected: (name) => {
-    mockFlags[name] = true;
-    Object.keys(mockFlags).forEach((flag) => {
-      if (flag !== name) {
-        mockFlags[flag] = false;
-      }
-    });
+  setValue: (name, value) => {
+    mockFlags[name] = value;
+
+    if (subscriptions[name]) {
+      subscriptions[name].forEach(callback => callback(value));
+    }
   },
 
   subscribe: (name, callback) => {
@@ -17,6 +16,7 @@ export default {
     }
 
     subscriptions[name] = [callback];
+    return () => delete subscriptions[name];
   },
 
   getFeatureFlag: name => mockFlags[name]

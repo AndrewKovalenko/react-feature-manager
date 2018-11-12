@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import replace from 'rollup-plugin-replace';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 
 export default {
   input: 'example/js/index.jsx',
@@ -11,13 +12,14 @@ export default {
     {
       file: 'public/js/example.js',
       format: 'iife'
-    },
+    }
   ],
   watch: {
     include: ['example/**', 'build/**'],
     clearScreen: false
   },
   plugins: [
+    sourcemaps(),
     resolve({
       extensions: ['.js', '.json', '.jsx']
     }),

@@ -7,8 +7,14 @@ const ClientControls = () => (
   <form>
     {flags.map(flag => (
       <div key={flag}>
-        <input type="radio" name="flag" value={flag} onChange={() => client.setSelected(flag)} />
-        <span>{flag}</span>
+        <label htmlFor={flag}>
+          <input
+            id={flag}
+            type="checkbox"
+            onChange={e => client.setValue(flag, e.target.checked)}
+          />
+          {flag}
+        </label>
       </div>
     ))}
   </form>

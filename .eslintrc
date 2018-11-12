@@ -19,6 +19,7 @@
     "comma-dangle": ["off"],
     "no-plusplus": ["off"],
     "no-unused-vars": ["error", { "varsIgnorePattern": "React" }],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/**/*"] }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/**/*"] }],
+    "react/forbid-prop-types": ["off"]
   }
 }
