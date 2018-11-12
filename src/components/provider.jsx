@@ -13,7 +13,10 @@ export default class Provider extends React.Component {
 }
 
 Provider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element
+  ]).isRequired,
   client: featureManagementClientSahpe.isRequired
 };
 

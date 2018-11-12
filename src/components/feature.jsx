@@ -40,7 +40,10 @@ Feature.contextTypes = {
 
 Feature.propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element
+  ]).isRequired
 };
 
 Feature.childContextTypes = {

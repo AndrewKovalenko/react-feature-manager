@@ -20,7 +20,10 @@ Option.contextTypes = {
 
 Option.propTypes = {
   value: PropTypes.any.isRequired,
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element
+  ]).isRequired
 };
 
 export default Option;
