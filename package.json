@@ -9,7 +9,6 @@
   "scripts": {
     "build:dev": "rollup -c rollup.config.lib.js --watch",
     "lint": "eslint src",
-    "old-start": "rollup -c rollup.config.example.js --watch",
     "start": "concurrently \"npm run build:dev\" \"rollup -c rollup.config.example.js --watch\""
   },
   "peerDependencies": {
