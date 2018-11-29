@@ -5,7 +5,7 @@ import featureManagementClientSahpe from '../client/feature-management-client-sh
 export default class Feature extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
 
   getChildContext() {
@@ -17,9 +17,11 @@ export default class Feature extends React.Component {
     const getFlagResult = featureManagementClient.getFeatureFlagValue(this.props.name);
 
     if (getFlagResult instanceof Promise) {
-      getFlagResult.then((flagValue) => {
-        this.setState({ flagValue });
-      });
+      getFlagResult
+        .then((flagValue) => {
+          this.setState({ flagValue });
+        })
+        .catch(error => console.error(error));
     } else {
       this.setState({ flagValue: getFlagResult });
     }
@@ -27,9 +29,10 @@ export default class Feature extends React.Component {
 
   componentDidMount() {
     const { featureManagementClient } = this.context;
-    this.unSubscribeFromFlagUpdates =
-      featureManagementClient.subscribe(this.props.name, newFlagValue =>
-        this.setState({ flagValue: newFlagValue }));
+    this.unSubscribeFromFlagUpdates = featureManagementClient.subscribe(
+      this.props.name,
+      newFlagValue => this.setState({ flagValue: newFlagValue })
+    );
   }
 
   componentWillUnmount() {
@@ -47,10 +50,8 @@ Feature.contextTypes = {
 
 Feature.propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element
-  ]).isRequired
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+    .isRequired
 };
 
 Feature.childContextTypes = {
