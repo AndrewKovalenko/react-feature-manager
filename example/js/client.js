@@ -24,7 +24,7 @@ export default {
     return () => delete subscriptions[name];
   },
 
-  getFeatureFlag: name => new Promise((resolve) => {
+  getFeatureFlagValue: name => new Promise((resolve) => {
     setTimeout(() => resolve(mockFlags[name]), 0);
   })
 };

@@ -14,7 +14,7 @@ export default class Feature extends React.Component {
 
   componentWillMount() {
     const { featureManagementClient } = this.context;
-    const getFlagResult = featureManagementClient.getFeatureFlag(this.props.name);
+    const getFlagResult = featureManagementClient.getFeatureFlagValue(this.props.name);
 
     if (getFlagResult instanceof Promise) {
       getFlagResult.then((flagValue) => {

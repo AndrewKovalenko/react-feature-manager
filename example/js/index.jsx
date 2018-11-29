@@ -3,15 +3,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from '../../build/module';
 import simulatedClient from './client';
-import ClientControls from './client-controls';
-import FeatureDisplay from './feature-display';
+import MultipleOptionsFlagControls from './controls/multiple-options-flag-controls';
+import OnOffFeatures from './controls/on-off-flags-controls';
+import OnOffFeaturesDisplay from './features/boolean-flaged-features';
+import MultipleOptionsForSameFeature from './features/multiple-options-for-one-feature';
 
-const { subscribe, getFeatureFlag } = simulatedClient;
+const { subscribe, getFeatureFlagValue } = simulatedClient;
 
 ReactDOM.render(
-  <Provider client={{ subscribe, getFeatureFlag }}>
-    <ClientControls client={simulatedClient} />
-    <FeatureDisplay />
+  <Provider client={{ subscribe, getFeatureFlagValue }}>
+    <section className="content-container">
+      <section className="row">
+        <OnOffFeatures client={simulatedClient} />
+        <OnOffFeaturesDisplay />
+      </section>
+      <section className="row">
+        <MultipleOptionsFlagControls client={simulatedClient} />
+        <MultipleOptionsForSameFeature />
+      </section>
+    </section>
   </Provider>,
   document.getElementById('application-container')
 );

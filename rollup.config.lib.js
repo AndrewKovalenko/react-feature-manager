@@ -29,6 +29,7 @@ export default {
       extensions: ['.js', '.json', '.jsx']
     }),
     commonjs({
+      include: 'node_modules/**',
       namedExports: {
         'node_modules/react/index.js': ['Children', 'Component'],
         'node_modules/prop-types/index.js': ['PropTypes']
