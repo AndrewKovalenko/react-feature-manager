@@ -1,5 +1,10 @@
-const mockFlags = {};
 const subscriptions = {};
+
+export const mockFlags = {
+  one: false,
+  two: true,
+  three: false
+};
 
 export default {
   setValue: (name, value) => {
@@ -19,5 +24,7 @@ export default {
     return () => delete subscriptions[name];
   },
 
-  getFeatureFlag: name => mockFlags[name]
+  getFeatureFlag: name => new Promise((resolve) => {
+    setTimeout(() => resolve(mockFlags[name]), 0);
+  })
 };

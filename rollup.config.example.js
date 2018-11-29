@@ -37,7 +37,7 @@ export default {
     }),
     serve({
       open: true,
-      verbose: false,
+      verbose: true,
       contentBase: 'public',
       historyApiFallback: false,
       host: 'localhost',

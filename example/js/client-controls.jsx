@@ -1,9 +1,9 @@
 import React from 'react';
-import client from './client';
+import client, { mockFlags } from './client';
 
-const flags = ['one', 'two', 'three'];
+const flags = Object.keys(mockFlags);
 const multivalueFlagName = 'multivalueFlag';
-const multivalueFlagValues = ['one', 'two', 'three'];
+const multivalueFlagValues = Object.keys(mockFlags);
 
 const ClientControls = () => (
   <div>
@@ -16,7 +16,10 @@ const ClientControls = () => (
               <input
                 id={flag}
                 type="checkbox"
-                onChange={e => client.setValue(flag, e.target.checked)}
+                onChange={(e) => {
+                  client.setValue(flag, e.target.checked);
+                }}
+                defaultChecked={mockFlags[flag]}
               />
               {flag}
             </label>
@@ -29,9 +32,9 @@ const ClientControls = () => (
       <form>
         {multivalueFlagValues.map(flag => (
           <div key={flag}>
-            <label htmlFor={flag}>
+            <label htmlFor={`multivalue-control-${flag}`}>
               <input
-                id={flag}
+                id={`multivalue-control-${flag}`}
                 type="radio"
                 name={multivalueFlagName}
                 onChange={() => client.setValue(multivalueFlagName, flag)}
