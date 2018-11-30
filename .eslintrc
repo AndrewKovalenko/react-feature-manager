@@ -22,7 +22,15 @@
     "no-unused-vars": ["error", { "varsIgnorePattern": "React" }],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["example/**/*", "rollup.config.lib.js", "rollup.config.example.js"] }
+      {
+        "devDependencies": [
+          "example/**/*",
+          "__tests__/**/*.js",
+          "setup-tests.js",
+          "rollup.config.lib.js",
+          "rollup.config.example.js"
+        ]
+      }
     ],
     "react/forbid-prop-types": ["off"]
   }

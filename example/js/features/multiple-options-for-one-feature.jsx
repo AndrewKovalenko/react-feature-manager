@@ -7,13 +7,19 @@ const MultipleOptionsForSameFeature = () => (
     <ul>
       <Feature name="multivalueFlag">
         <Option value="one">
-          <span>Show option One</span>
+          <span>
+            Feature <span className="bold">one</span> enabled
+          </span>
         </Option>
         <Option value="two">
-          <span>Show option Two</span>
+          <span>
+            Feature <span className="bold">two</span> enabled
+          </span>
         </Option>
         <Option value="three">
-          <span>Show option Three</span>
+          <span>
+            Feature <span className="bold">three</span> enabled
+          </span>
         </Option>
       </Feature>
     </ul>

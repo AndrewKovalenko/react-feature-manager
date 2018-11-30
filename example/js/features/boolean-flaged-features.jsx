@@ -8,7 +8,9 @@ const OnOffFeaturesDisplay = () => (
       <Feature name="one">
         <Option value>
           <li>
-            <span>Feature One enabled</span>
+            <span>
+              Feature <span className="bold">one</span> enabled
+            </span>
           </li>
         </Option>
       </Feature>
@@ -16,7 +18,9 @@ const OnOffFeaturesDisplay = () => (
       <Feature name="two">
         <Option value>
           <li>
-            <span>Feature Two enabled</span>
+            <span>
+              Feature <span className="bold">two</span> enabled
+            </span>
           </li>
         </Option>
       </Feature>
@@ -24,7 +28,9 @@ const OnOffFeaturesDisplay = () => (
       <Feature name="three">
         <Option value>
           <li>
-            <span>Feature Three enabled</span>
+            <span>
+              Feature <span className="bold">three</span> enabled
+            </span>
           </li>
         </Option>
       </Feature>
