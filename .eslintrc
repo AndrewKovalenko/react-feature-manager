@@ -4,7 +4,7 @@
     "commonjs": true,
     "es6": true
   },
-  "plugins": ["react"],
+  "plugins": ["react", "prettier"],
   "extends": "airbnb",
   "parserOptions": {
     "sourceType": "module"
@@ -20,6 +20,7 @@
     "comma-dangle": ["off"],
     "no-plusplus": ["off"],
     "no-unused-vars": ["error", { "varsIgnorePattern": "React" }],
+    "function-paren-newline": ["off"],
     "import/no-extraneous-dependencies": [
       "error",
       {
