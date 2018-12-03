@@ -8,20 +8,17 @@ const client = {
   getFeatureFlagValue: jest.fn()
 };
 
+const ONE = 1;
+
 class ClientConsumer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { featureManagementClient } = this.context;
-    this.setState({ featureManagementClient });
+    featureManagementClient.subscribe();
+    featureManagementClient.getFeatureFlagValue();
   }
 
   render() {
-    return (
-      <React.Fragment>
-        {Object.keys(this.state.featureManagementClient).map(propertyName => (
-          <div key={propertyName}>{propertyName}</div>
-        ))}
-      </React.Fragment>
-    );
+    return null;
   }
 }
 
@@ -37,6 +34,6 @@ test('should render Providers children and pass client', () => {
   );
 
   expect(wrapper.contains(<ClientConsumer />)).toEqual(true);
-  expect(wrapper.find(<div>subscribe</div>)).toBeDefined();
-  expect(wrapper.find(<div>getFeatureFlagValue</div>)).toBeDefined();
+  expect(client.subscribe).toHaveBeenCalledTimes(ONE);
+  expect(client.getFeatureFlagValue).toHaveBeenCalledTimes(ONE);
 });
