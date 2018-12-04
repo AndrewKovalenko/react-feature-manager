@@ -4,7 +4,7 @@ node_js:
 install: npm install
 script: npm run build && npm test
 after_script:
-- cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+- cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 notifications:
   email:
     on_success: never
