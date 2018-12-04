@@ -7,8 +7,8 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'build/umd/react-feature-switch.js',
-      name: 'react-feature-switch',
+      file: 'build/umd/react-feature-manager.js',
+      name: 'react-feature-manager',
       format: 'umd',
       globals: {
         react: 'React',
