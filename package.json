@@ -1,24 +1,20 @@
 {
-  "name": "react-feature-manager",
-  "version": "0.0.3",
-  "description": "React toolset to start using feature-flags in your react application",
-  "main": "build/umd/react-feature-manager.min.js",
-  "module": "build/module/index.js",
-  "author": "Andrii Kovalenko",
-  "license": "MIT",
-  "scripts": {
-    "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js",
-    "build:dev": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js --watch",
-    "build": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js && npm run uglify",
-    "lint": "eslint src",
-    "start": "concurrently \"npm run build:dev\" \"export BABEL_ENV=rollup; rollup -c rollup.config.example.js --watch\"",
-    "test": "jest --coverage"
+  "author": {
+    "name": "Andrew Kovalenko"
   },
-  "peerDependencies": {
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
-    "prop-types": "15.6.1"
+  "engines": {
+    "node": ">=8.12.0"
   },
+  "keywords": [
+    "react feature switch",
+    "feature management",
+    "dark launch",
+    "a/b test"
+  ],
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "React toolset to start using feature-flags in your application",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
@@ -37,7 +33,7 @@
     "jest": "^23.6.0",
     "prettier": "^1.15.3",
     "prop-types": "^15.6.1",
-    "react": "16.2.0",
+    "react": "~16.2.0",
     "react-dom": "16.2.0",
     "regenerator-runtime": "^0.13.1",
     "rollup": "^0.57.1",
@@ -51,9 +47,25 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-uglify": "^6.0.0",
     "rollup-watch": "^4.3.1",
-    "vertibar": "^0.0.32"
-  },
-  "dependencies": {
+    "vertibar": "^0.0.32",
     "uglify-js": "^3.4.9"
-  }
+  },
+  "license": "MIT",
+  "main": "build/umd/react-feature-manager.min.js",
+  "module": "build/module/index.js",
+  "name": "react-feature-manager",
+  "peerDependencies": {
+    "react": "~16.2.0",
+    "react-dom": "~16.2.0",
+    "prop-types": "~15.6.1"
+  },
+  "scripts": {
+    "build": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js && npm run uglify",
+    "build:dev": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js --watch",
+    "lint": "eslint src",
+    "start": "concurrently \"npm run build:dev\" \"export BABEL_ENV=rollup; rollup -c rollup.config.example.js --watch\"",
+    "test": "jest --coverage",
+    "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js"
+  },
+  "version": "0.0.4"
 }
