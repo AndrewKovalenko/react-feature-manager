@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/AndrewKovalenko/react-feature-manager.svg?branch=master)](https://travis-ci.org/AndrewKovalenko/react-feature-manager)
 # react-feature-manager
 #### React high-order components kit to make feature management simple
 
