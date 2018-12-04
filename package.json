@@ -1,6 +1,6 @@
 {
   "name": "react-feature-manager",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React toolset to start using feature-flags in your react application",
   "main": "build/umd/react-feature-manager.min.js",
   "module": "build/module/index.js",
