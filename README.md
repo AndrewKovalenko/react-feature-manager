@@ -21,7 +21,13 @@ expect them to be provided as peer dependencies:
 - React Dom
 - PropTypes
 
-### Provider, Feature and Option
+### Library API
+This library provides 3 HOCs:
+- `**Provider**` - provides *client* to `Feature` HOCs
+- `**Feature**` - defines a feature to manage. Requires `name: string` property, which should be a featureFlag name
+- `**Option**` - defines a feature implemenatation. Requires a `value` property. If `value` is equal to `featureFlag` value - `childern` of `Option` will be rendered.
+
+
 At the top level of your app add client provider:
 ```
    import { Provider as FeatureClientProvider } from 'react-feature-manager';
