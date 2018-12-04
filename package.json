@@ -1,14 +1,15 @@
 {
   "name": "react-feature-manager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React toolset to start using feature-flags in your react application",
-  "main": "build/umd/react-feature-manager.js",
+  "main": "build/umd/react-feature-manager.min.js",
   "module": "build/module/index.js",
   "author": "Andrii Kovalenko",
   "license": "MIT",
   "scripts": {
+    "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js",
     "build:dev": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js --watch",
-    "build": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js",
+    "build": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js && npm run uglify",
     "lint": "eslint src",
     "start": "concurrently \"npm run build:dev\" \"export BABEL_ENV=rollup; rollup -c rollup.config.example.js --watch\"",
     "test": "jest --coverage"
@@ -51,5 +52,8 @@
     "rollup-plugin-uglify": "^6.0.0",
     "rollup-watch": "^4.3.1",
     "vertibar": "^0.0.32"
+  },
+  "dependencies": {
+    "uglify-js": "^3.4.9"
   }
 }
