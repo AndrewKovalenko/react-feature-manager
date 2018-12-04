@@ -14,6 +14,13 @@ or `yarn add react-feature-switch`
 
 ## How to use
 
+## Dependencies
+For bundle size optimisation purposes this library does not include following dependencies and 
+expect them to be provided as peer dependencies:
+- React
+- React Dom
+- PropTypes
+
 ### Provider, Feature and Option
 At the top level of your app add client provider:
 ```
@@ -92,6 +99,6 @@ However there is an example of a mock client in the [*example* folder](https://g
 
 1. `git clone https://github.com/AndrewKovalenko/react-feature-switch.git`
 2. `cd react-feature-switch`
-3. 'npm install'
-4. 'npm start'
+3. `npm install`
+4. `npm start`
 Browser should open automatically, but if it doesn't - visit [http://localhost:10001/](http://localhost:10001/) once build is finished.
