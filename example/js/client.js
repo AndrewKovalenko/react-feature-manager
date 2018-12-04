@@ -7,6 +7,9 @@ export const mockFlags = {
 };
 
 export default {
+  // setValue is not a part of mandatory client API,
+  // but just a helper method to simulate feature flag value
+  // changes
   setValue: (name, value) => {
     mockFlags[name] = value;
 
