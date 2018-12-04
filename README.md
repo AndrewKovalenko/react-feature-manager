@@ -41,9 +41,21 @@ At the top level of your app add client provider:
    );
 ```
 
+##### NOTE: if your build system does not support "module builds" or you decided to use UMD version of this package for some reason, your imports have to look like:
+```
+  import featureManager from 'react-feature-manager'
+
+  const { Provider } = featureManager;
+  ...
+  const { Feature, Option } = featureManager;
+```
+
 This example is just simple **on/off** switch:
 
 ```
+import React from 'react';
+import { Feature, Option } from 'react-feature-manager';
+
 <Feature name="one">
   <Option value>
       <span>

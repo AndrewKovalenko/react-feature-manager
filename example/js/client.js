@@ -7,14 +7,6 @@ export const mockFlags = {
 };
 
 export default {
-  setValue: (name, value) => {
-    mockFlags[name] = value;
-
-    if (subscriptions[name]) {
-      subscriptions[name].forEach(callback => callback(value));
-    }
-  },
-
   subscribe: (name, callback) => {
     if (subscriptions[name]) {
       subscriptions[name].push(callback);
@@ -26,5 +18,16 @@ export default {
 
   getFeatureFlagValue: name => new Promise((resolve) => {
     setTimeout(() => resolve(mockFlags[name]), 0);
-  })
+  }),
+  
+  // setValue is not a part of mandatory client API,
+  // but just a helper method to simulate feature flag value
+  // changes
+  setValue: (name, value) => {
+    mockFlags[name] = value;
+
+    if (subscriptions[name]) {
+      subscriptions[name].forEach(callback => callback(value));
+    }
+  }
 };
