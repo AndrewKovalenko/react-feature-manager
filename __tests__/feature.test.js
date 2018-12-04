@@ -38,7 +38,7 @@ ValueConsumer.contextTypes = {
   flagValue: PropTypes.any
 };
 
-test('should not render any conent if "flagValue" is "undefined"', () => {
+test('should not render children if "flagValue" is "undefined"', () => {
   const wrapper = shallow(
     <Feature name={VALUE_UNDEFINED_TEST_NAME} >
       <ValueConsumer />

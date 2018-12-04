@@ -1,6 +1,7 @@
 build
 node_modules
 public/**
+coverage
 
 yarn-error.log
 

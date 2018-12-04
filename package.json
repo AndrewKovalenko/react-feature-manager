@@ -10,7 +10,7 @@
     "build:dev": "export BABEL_ENV=rollup; rollup -c rollup.config.lib.js --watch",
     "lint": "eslint src",
     "start": "concurrently \"npm run build:dev\" \"export BABEL_ENV=rollup; rollup -c rollup.config.example.js --watch\"",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "peerDependencies": {
     "react": "16.2.0",
