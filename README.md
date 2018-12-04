@@ -4,7 +4,7 @@
 *react-feature-manager* is a library which provide [high order components](https://reactjs.org/docs/higher-order-components.html) to
 manange your application features, run dark launches or A/B tests.
 
-This library is back-end agnostick and will work with any feature-flag implemenemtation as long as you provide it the right client.
+This library is back-end agnostick and will work with any feature-flag implemenemtation as long as you provide the client to it.
 
 ## Installation
 
