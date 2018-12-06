@@ -68,7 +68,7 @@
     "start": "concurrently \"npm run build:dev\" \"export BABEL_ENV=rollup; rollup -c rollup.config.example.js --watch\"",
     "test": "jest --coverage",
     "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js",
-    "release": "release-it"
+    "release": "release-it -n"
   },
   "version": "0.0.4"
 }
