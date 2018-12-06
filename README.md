@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AndrewKovalenko/react-feature-manager.svg?branch=master)](https://travis-ci.org/AndrewKovalenko/react-feature-manager)
+[![Coverage Status](https://coveralls.io/repos/github/AndrewKovalenko/react-feature-manager/badge.svg?branch=master)](https://coveralls.io/github/AndrewKovalenko/react-feature-manager?branch=master)
 # react-feature-manager
 #### React high-order components kit to make feature management simple
 
