@@ -4,5 +4,8 @@
   "non-interactive": true,
   "npm": {
     "publish": false
+  },
+  "src": {
+    "pushRepo": "https://${GITHUB_TOKEN}@github.com/AndrewKovalenko/react-feature-manager.git "
   }
 }
