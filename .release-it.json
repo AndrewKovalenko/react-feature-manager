@@ -1,3 +1,8 @@
 {
-  "requireUpstream": false
+
+  "requireUpstream": false,
+  "non-interactive": true,
+  "npm": {
+    "publish": false
+  }
 }
