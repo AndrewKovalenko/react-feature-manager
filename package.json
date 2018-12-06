@@ -37,6 +37,7 @@
     "react": "~16.2.0",
     "react-dom": "16.2.0",
     "regenerator-runtime": "^0.13.1",
+    "release-it": "^8.2.0",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "8.4.0",
@@ -66,7 +67,8 @@
     "lint": "eslint src",
     "start": "concurrently \"npm run build:dev\" \"export BABEL_ENV=rollup; rollup -c rollup.config.example.js --watch\"",
     "test": "jest --coverage",
-    "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js"
+    "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js",
+    "release": "release-it"
   },
   "version": "0.0.4"
 }
