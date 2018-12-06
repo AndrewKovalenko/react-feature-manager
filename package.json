@@ -70,5 +70,5 @@
     "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js",
     "release": "release-it -n"
   },
-  "version": "0.0.4"
+  "version": "0.0.5"
 }
