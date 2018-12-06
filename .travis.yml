@@ -9,3 +9,12 @@ notifications:
   email:
     on_success: never
     on_failure: always
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: mr.kovalenko.a.o@gmail.com
+  on:
+    branch: master
+    tags: false
+  tag: latest
+  api_key: $NPM_TOKEN
