@@ -6,6 +6,6 @@
     "publish": false
   },
   "src": {
-    "pushRepo": "origin-release"
+    "push": false
   }
 }
