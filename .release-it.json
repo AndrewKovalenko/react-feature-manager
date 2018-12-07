@@ -6,6 +6,6 @@
     "publish": false
   },
   "src": {
-    "pushRepo": "https://${GITHUB_TOKEN}@github.com/AndrewKovalenko/react-feature-manager.git"
+    "pushRepo": "origin-release"
   }
 }
