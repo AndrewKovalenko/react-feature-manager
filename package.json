@@ -77,7 +77,7 @@
     "start": "concurrently \"npm run build:dev\" \"export BABEL_ENV=rollup; rollup -c rollup.config.example.js --watch\"",
     "test": "jest --coverage",
     "uglify": "uglifyjs build/umd/react-feature-manager.js --output build/umd/react-feature-manager.min.js",
-    "prepublish": "standard-version && git remote add origin-pages https://${GITHUB_TOKEN}@github.com/AndrewKovalenko/react-feature-manager.git > /dev/null 2>&1 && git push --tags --set-upstream origin-pages master"
+    "prepublish": "standard-version && git remote add origin-pages https://${GITHUB_TOKEN}@github.com/AndrewKovalenko/react-feature-manager.git > /dev/null 2>&1 && git push --follow-tags --set-upstream origin-pages master"
   },
   "version": "0.0.12"
 }
