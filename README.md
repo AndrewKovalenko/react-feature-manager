@@ -37,7 +37,7 @@ At the top level of your app add client provider:
 
    ReactDOM.render(
      <FeatureClientProvider client={yourClientImplementation}>
-       <MyAppliaction />
+       <MyApplication />
      </FeatureClientProvider>,
      document.getElementById('application-container')
    );
